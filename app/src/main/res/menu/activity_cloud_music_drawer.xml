@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+<group android:checkableBehavior="single">
+        <item
+            android:id="@+id/my_message"
+            android:icon="@drawable/ic_menu_my_message"
+            android:title="@string/my_message" />
+        <item
+            android:id="@+id/score_market"
+            android:icon="@drawable/ic_menu_score_market"
+            android:title="@string/score_market" />
+        <item
+            android:id="@+id/pay_music"
+            android:icon="@drawable/ic_menu_pay_music"
+            android:title="@string/pay_music" />
+        <item
+            android:id="@+id/online_music_non_use_data"
+            android:icon="@drawable/ic_menu_online_music"
+            android:title="@string/online_music_non_use_data" />
+        <item
+            android:id="@+id/music_recognition"
+            android:icon="@drawable/ic_menu_music_recognition"
+            android:title="@string/music_recognition" />
+        <item
+            android:id="@+id/theme_skin"
+            android:icon="@drawable/ic_menu_theme_skin"
+            android:title="@string/theme_skin"/>
+        <item
+            android:id="@+id/night_mode"
+            android:icon="@drawable/ic_menu_night_mode"
+            android:title="@string/night_mode"/>
+        <item
+            android:id="@+id/time_stop_play"
+            android:icon="@drawable/ic_menu_time_play"
+            android:title="@string/time_stop_play"/>
+        <item
+            android:id="@+id/my_music_cloud"
+            android:icon="@drawable/ic_menu_cloud_music"
+            android:title="@string/my_music_cloud"/>
+    </group>
+
+
+</menu>

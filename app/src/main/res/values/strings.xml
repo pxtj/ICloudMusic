@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ICloudMusic</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="my_message">我的消息</string>
+    <string name="score_market">积分商城</string>
+    <string name="pay_music">付费音乐包</string>
+    <string name="online_music_non_use_data">在线听歌免流量</string>
+    <string name="music_recognition">听歌识曲</string>
+    <string name="theme_skin">主题换肤</string>
+    <string name="night_mode">夜间模式</string>
+    <string name="time_stop_play">定时停止播放</string>
+    <string name="my_music_cloud">我的音乐云盘</string>
+
+    <string name="nav_setting">设置</string>
+    <string name="nav_exit">退出应用</string>
+
+    <string name="personal_recommendation">个性推荐</string>
+    <string name="music_list">歌单</string>
+    <string name="music_radio">主播电台</string>
+    <string name="ranking_list">排行榜</string>
+
+</resources>
