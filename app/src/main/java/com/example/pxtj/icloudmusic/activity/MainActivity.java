@@ -2,40 +2,41 @@ package com.example.pxtj.icloudmusic.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-import com.example.pxtj.icloudmusic.adapter.MyPagerAdapter;
 import com.example.pxtj.icloudmusic.R;
+import com.example.pxtj.icloudmusic.adapter.TabContentPagerAdapter;
+import com.example.pxtj.icloudmusic.fragment.DiscoverFragment;
+import com.example.pxtj.icloudmusic.fragment.FriendsFragment;
+import com.example.pxtj.icloudmusic.fragment.MusicFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CloudMusicActivity extends AppCompatActivity
+public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private Toolbar toolbar;
 
     private ViewPager topToolbarViewPager;
     private TabLayout topToolbarTablayout;
-    private List<View> topToolbarTabViewList;
+    private List<Fragment> topToolbarTabFragmentList;
     private List<String> topToolbarTabTitleList;
 
-    private TabLayout discoverTabLayout;
-    private ViewPager discoverViewPager;
-    private List<View> discoverViewList;
-    private List<String> discoverTitleList;
+    private DiscoverFragment discoverFragment;
+    private MusicFragment musicFragment;
+    private FriendsFragment friendsFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,25 +60,13 @@ public class CloudMusicActivity extends AppCompatActivity
         //top toolbar tab layout:
         topToolbarViewPager = (ViewPager)findViewById(R.id.top_toolbar_tab_view_pager);
         topToolbarTablayout = (TabLayout)findViewById(R.id.top_toolbar_tab);
-        initTopToolbarTabView();
+        initTopToolbarTabFragment();
         initTopToolbarTabTitle();
-        MyPagerAdapter topToolbarPagerAdapter = new MyPagerAdapter(topToolbarTabViewList, topToolbarTabTitleList);
+        TabContentPagerAdapter topToolbarPagerAdapter = new TabContentPagerAdapter(getSupportFragmentManager(),
+                topToolbarTabFragmentList, topToolbarTabTitleList);
         topToolbarViewPager.setAdapter(topToolbarPagerAdapter);
         topToolbarTablayout.setupWithViewPager(topToolbarViewPager);
-        topToolbarTablayout.setTabGravity(TabLayout.GRAVITY_CENTER);
-
-
-        //discover page:
-        discoverTabLayout = (TabLayout)topToolbarTabViewList.get(0).findViewById(R.id.discover_tab);
-        discoverViewPager = (ViewPager)topToolbarTabViewList.get(0).findViewById(R.id.discover_view_pager);
-        initDiscoverTabView();
-        initDiscoverTabTitle();
-        MyPagerAdapter discoverPagerAdapter = new MyPagerAdapter(discoverViewList, discoverTitleList);
-        Log.e("wrp", "discoverPagerAdapter: " + discoverPagerAdapter.toString());
-        discoverViewPager.setAdapter(discoverPagerAdapter);
-        discoverTabLayout.setupWithViewPager(discoverViewPager);
-
-
+//        topToolbarTablayout.setSelectedTabIndicatorColor(getColor(android.R.color.));
 
     }
 
@@ -91,15 +80,14 @@ public class CloudMusicActivity extends AppCompatActivity
 
     }
 
-    public void initTopToolbarTabView(){
-        topToolbarTabViewList = new ArrayList<>();
-        LayoutInflater inflater = getLayoutInflater();
-        View discoverView = inflater.inflate(R.layout.discover, null);
-        View musicView = inflater.inflate(R.layout.music, null);
-        View friendsView = inflater.inflate(R.layout.friends, null);
-        topToolbarTabViewList.add(discoverView);
-        topToolbarTabViewList.add(musicView);
-        topToolbarTabViewList.add(friendsView);
+    public void initTopToolbarTabFragment(){
+        topToolbarTabFragmentList = new ArrayList<>();
+        discoverFragment = new DiscoverFragment();
+        musicFragment = new MusicFragment();
+        friendsFragment = new FriendsFragment();
+        topToolbarTabFragmentList.add(discoverFragment);
+        topToolbarTabFragmentList.add(musicFragment);
+        topToolbarTabFragmentList.add(friendsFragment);
     }
 
     public void initTopToolbarTabTitle(){
@@ -108,30 +96,6 @@ public class CloudMusicActivity extends AppCompatActivity
         topToolbarTabTitleList.add("fx");
         topToolbarTabTitleList.add("yy");
         topToolbarTabTitleList.add("py");
-    }
-
-    public void initDiscoverTabView(){
-        discoverViewList = new ArrayList<>();
-        LayoutInflater inflater = getLayoutInflater();
-
-        View personalView = inflater.inflate(R.layout.personal_recommand, null);
-        View musicListView = inflater.inflate(R.layout.music_list, null);
-        View musicRadioView = inflater.inflate(R.layout.music_radio, null);
-        View rankingListView = inflater.inflate(R.layout.ranking_list, null);
-
-        discoverViewList.add(personalView);
-        discoverViewList.add(musicListView);
-        discoverViewList.add(musicRadioView);
-        discoverViewList.add(rankingListView);
-    }
-
-    public void initDiscoverTabTitle(){
-        discoverTitleList = new ArrayList<>();
-        discoverTitleList.add(getResources().getString(R.string.personal_recommendation));
-        discoverTitleList.add(getResources().getString(R.string.music_list));
-        discoverTitleList.add(getResources().getString(R.string.music_radio));
-        discoverTitleList.add(getResources().getString(R.string.ranking_list));
-
     }
 
     @Override

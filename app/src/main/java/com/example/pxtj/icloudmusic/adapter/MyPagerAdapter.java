@@ -13,6 +13,9 @@ public class MyPagerAdapter extends PagerAdapter{
     List<View> viewList;
     List<String> titleList;
 
+    public MyPagerAdapter(List<View> viewList){
+        this(viewList, null);
+    }
     public MyPagerAdapter(List<View> viewList, List<String> titleList) {
         this.viewList = viewList;
         this.titleList = titleList;
