@@ -1,7 +1,6 @@
 package com.example.pxtj.icloudmusic.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -11,9 +10,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Layout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.pxtj.icloudmusic.R;
 import com.example.pxtj.icloudmusic.adapter.TabContentPagerAdapter;
@@ -25,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private Toolbar toolbar;
 
@@ -37,6 +39,12 @@ public class MainActivity extends AppCompatActivity
     private DiscoverFragment discoverFragment;
     private MusicFragment musicFragment;
     private FriendsFragment friendsFragment;
+
+    private ImageView playBarPlayList;
+    private ImageView playBarPlay;
+    private ImageView playBarNext;
+
+    private boolean playBarPlayState = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +63,10 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        CoordinatorLayout musicLayout = (CoordinatorLayout) findViewById(R.id.app_bar_cloud_music);
+        TextView navExit = (TextView)navigationView.findViewById(R.id.nav_exit);
+        TextView navSettings = (TextView)navigationView.findViewById(R.id.nav_setting);
+        navExit.setOnClickListener(this);
+        navSettings.setOnClickListener(this);
 
         //top toolbar tab layout:
         topToolbarViewPager = (ViewPager)findViewById(R.id.top_toolbar_tab_view_pager);
@@ -64,10 +75,50 @@ public class MainActivity extends AppCompatActivity
         initTopToolbarTabTitle();
         TabContentPagerAdapter topToolbarPagerAdapter = new TabContentPagerAdapter(getSupportFragmentManager(),
                 topToolbarTabFragmentList, topToolbarTabTitleList);
+//        TabContentPagerAdapter topToolbarPagerAdapter = new TabContentPagerAdapter(getSupportFragmentManager(),
+//                topToolbarTabFragmentList, null);
         topToolbarViewPager.setAdapter(topToolbarPagerAdapter);
-        topToolbarTablayout.setupWithViewPager(topToolbarViewPager);
-//        topToolbarTablayout.setSelectedTabIndicatorColor(getColor(android.R.color.));
 
+//        topToolbarTablayout.addTab(topToolbarTablayout.newTab().setIcon(R.drawable.actionbar_discover_normal));
+//        topToolbarTablayout.addTab(topToolbarTablayout.newTab().setIcon(R.drawable.actionbar_music_normal));
+//        topToolbarTablayout.addTab(topToolbarTablayout.newTab().setIcon(R.drawable.actionbar_music_normal));
+
+        topToolbarTablayout.setupWithViewPager(topToolbarViewPager);
+
+        playBarPlayList = (ImageView)findViewById(R.id.playbar_playlist);
+        playBarPlay = (ImageView)findViewById(R.id.playbar_play);
+        playBarNext = (ImageView)findViewById(R.id.playbar_next);
+        playBarPlayList.setOnClickListener(this);
+        playBarPlay.setOnClickListener(this);
+        playBarNext.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.playbar_playlist:
+                break;
+            case R.id.playbar_play:
+                playBarPlayState = !playBarPlayState;
+                if (playBarPlayState){
+                    playBarPlay.setImageResource(R.drawable.playbar_btn_pause);
+                }else {
+                    playBarPlay.setImageResource(R.drawable.playbar_btn_play);
+                }
+                break;
+            case R.id.playbar_next:
+                break;
+
+            case R.id.nav_setting:
+                break;
+
+            case R.id.nav_exit:
+                finish();
+                break;
+
+            default:break;
+        }
     }
 
     private void initToolbar(){
@@ -134,26 +185,29 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
+        switch (item.getItemId()){
 
-        if (id == R.id.my_message) {
-            // Handle the camera action
-        } else if (id == R.id.score_market) {
-
-        } else if (id == R.id.pay_music) {
-
-        } else if (id == R.id.online_music_non_use_data) {
-
-        } else if (id == R.id.music_recognition) {
-
-        } else if (id == R.id.theme_skin) {
-
-        } else if (id == R.id.night_mode) {
-
-        } else if (id == R.id.time_stop_play) {
-
-        } else if (id == R.id.my_music_cloud) {
-
+            case R.id.my_message:
+                break;
+            case R.id.score_market:
+                break;
+            case R.id.pay_music:
+                break;
+            case R.id.online_music_non_use_data:
+                break;
+            case R.id.music_recognition:
+                break;
+            case R.id.theme_skin:
+                break;
+            case R.id.night_mode:
+                break;
+            case R.id.time_stop_play:
+                break;
+            case R.id.music_alarm_clock:
+                break;
+            case R.id.my_music_cloud:
+                break;
+            default:break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

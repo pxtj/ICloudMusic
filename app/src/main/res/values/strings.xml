@@ -14,6 +14,7 @@
     <string name="theme_skin">主题换肤</string>
     <string name="night_mode">夜间模式</string>
     <string name="time_stop_play">定时停止播放</string>
+    <string name="music_alarm_clock">音乐闹钟</string>
     <string name="my_music_cloud">我的音乐云盘</string>
 
     <string name="nav_setting">设置</string>

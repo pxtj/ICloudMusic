@@ -14,19 +14,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+
+
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        android:background="#f5f4f3f3"
         app:headerLayout="@layout/nav_header_cloud_music"
-        app:menu="@menu/activity_cloud_music_drawer" >
+        app:menu="@menu/activity_cloud_music_drawer">
 
         <include
             layout="@layout/nav_footer_cloud_music"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_gravity="bottom"/>
 
     </android.support.design.widget.NavigationView>

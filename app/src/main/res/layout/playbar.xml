@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="2dp"
+            android:background="#EEFFFFFF"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_marginLeft="2dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/list_cover_backlive"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingLeft="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="60"
+                    android:gravity="center_vertical"
+                    android:textSize="15sp"
+                    android:text="喜剧之王"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="40"
+                    android:gravity="top"
+                    android:textSize="10sp"
+                    android:textColor="#BABABA"
+                    android:text="李荣浩"/>
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/playbar_playlist"
+                android:layout_width="46dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:clickable="true"
+                android:src="@drawable/playbar_btn_playlist"/>
+            <ImageView
+                android:id="@+id/playbar_play"
+                android:layout_width="46dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:clickable="true"
+                android:src="@drawable/playbar_btn_play_selector"/>
+            <ImageView
+                android:id="@+id/playbar_next"
+                android:layout_width="46dp"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter"
+                android:clickable="true"
+                android:src="@drawable/playbar_btn_next"/>
+        </LinearLayout>
+
+</RelativeLayout>

@@ -35,9 +35,17 @@
             android:icon="@drawable/ic_menu_time_play"
             android:title="@string/time_stop_play"/>
         <item
+            android:id="@+id/music_alarm_clock"
+            android:icon="@drawable/ic_menu_music_alarm_clock"
+            android:title="@string/music_alarm_clock"/>
+        <item
             android:id="@+id/my_music_cloud"
             android:icon="@drawable/ic_menu_cloud_music"
             android:title="@string/my_music_cloud"/>
+        <item
+            android:id="@+id/blank_item"
+            android:title=""
+            android:checkable="false"/>
     </group>
 
 
