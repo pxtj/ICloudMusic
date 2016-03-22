@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity
 
         //设置Menu的监听支持：
         setSupportActionBar(toolbar);
-        //去掉标题栏
+//        去掉标题栏
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
     }
