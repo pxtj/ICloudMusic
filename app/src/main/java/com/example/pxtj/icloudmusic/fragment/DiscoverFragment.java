@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.pxtj.icloudmusic.R;
-import com.example.pxtj.icloudmusic.adapter.MyPagerAdapter;
+import com.example.pxtj.icloudmusic.adapter.TabContentPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +21,13 @@ import java.util.List;
 public class DiscoverFragment extends Fragment{
     private TabLayout discoverTabLayout;
     private ViewPager discoverViewPager;
-    private List<View> discoverViewList;
+    private List<Fragment> discoverFragmentList;
     private List<String> discoverTitleList;
 
     private View discoverView;
-    private View recommendView, musicListView, radioView, rankingListView;
+    private Fragment recommendFragment, musicListFragment, radioFragment, rankingListFragment;
 
-    private MyPagerAdapter discoverPagerAdapter;
+    private TabContentPagerAdapter discoverPagerAdapter;
 
     @Nullable
     @Override
@@ -41,15 +41,15 @@ public class DiscoverFragment extends Fragment{
         discoverTabLayout = (TabLayout) discoverView.findViewById(R.id.discover_tab);
         discoverViewPager = (ViewPager) discoverView.findViewById(R.id.discover_view_pager);
 
-        discoverViewList = new ArrayList<>();
-        recommendView = inflater.inflate(R.layout.personal_recommand, null);
-        musicListView = inflater.inflate(R.layout.music_list, null);
-        radioView = inflater.inflate(R.layout.music_radio, null);
-        rankingListView = inflater.inflate(R.layout.ranking_list, null);
-        discoverViewList.add(recommendView);
-        discoverViewList.add(musicListView);
-        discoverViewList.add(radioView);
-        discoverViewList.add(rankingListView);
+        discoverFragmentList = new ArrayList<>();
+        recommendFragment = new PersonalRecommendFragment();
+        musicListFragment = new MusicListFragment();
+        radioFragment = new AnchorRadioFragment();
+        rankingListFragment = new RankingListFragment();
+        discoverFragmentList.add(recommendFragment);
+        discoverFragmentList.add(musicListFragment);
+        discoverFragmentList.add(radioFragment);
+        discoverFragmentList.add(rankingListFragment);
 
         discoverTitleList = new ArrayList<>();
         discoverTitleList.add(getResources().getString(R.string.personal_recommendation));
@@ -57,7 +57,7 @@ public class DiscoverFragment extends Fragment{
         discoverTitleList.add(getResources().getString(R.string.music_radio));
         discoverTitleList.add(getResources().getString(R.string.ranking_list));
 
-        discoverPagerAdapter = new MyPagerAdapter(discoverViewList, discoverTitleList);
+        discoverPagerAdapter = new TabContentPagerAdapter(getActivity().getSupportFragmentManager(), discoverFragmentList, discoverTitleList);
         discoverViewPager.setAdapter(discoverPagerAdapter);
         discoverTabLayout.setupWithViewPager(discoverViewPager);
 

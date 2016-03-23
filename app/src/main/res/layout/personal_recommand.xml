@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,26 +8,100 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="150dp">
-            <RelativeLayout
+            <android.support.v4.view.ViewPager
+                android:id="@+id/recommend_viewpage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <android.support.v4.view.ViewPager
-                    android:id="@+id/recommend_view_pager"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                </android.support.v4.view.ViewPager>
-            </RelativeLayout>
-        </LinearLayout>
+            </android.support.v4.view.ViewPager>
+            <LinearLayout
+                android:id="@+id/recommend_viewpage_dot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp">
 
-        <TextView
+            </LinearLayout>
+        </RelativeLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="gexigntuijian;"/>
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/personal_fm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:src="@drawable/recommend_icn_fm_prs"
+                    android:layout_gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/personal_fm"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/daily_music_recommend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:src="@drawable/recommend_icn_daily"
+                    android:layout_gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/daily_music_recommend"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+                <ImageView
+                    android:id="@+id/new_music_ranking"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:src="@drawable/recommend_icn_upbill_prs"
+                    android:layout_gravity="center_horizontal"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/new_music_ranking"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+
+
     </LinearLayout>
-
-
 </ScrollView>

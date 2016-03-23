@@ -25,4 +25,8 @@
     <string name="music_radio">主播电台</string>
     <string name="ranking_list">排行榜</string>
 
+    <string name="personal_fm">私人FM</string>
+    <string name="daily_music_recommend">每日歌曲推荐</string>
+    <string name="new_music_ranking">云音乐新歌榜</string>
+
 </resources>
